@@ -54,6 +54,14 @@ const asideMenuConfig = [
     ],
   },
   {
+    name: '实验管理',
+    icon: 'shezhi',
+    children: [
+      { name: '实验列表', path: '/experiment/list' },
+      { name: '创建实验', path: '/experiment/create' },
+    ],
+  },
+  {
     name: '基本设置',
     path: '/setting',
     icon: 'yonghu',

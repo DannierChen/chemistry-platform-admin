@@ -6,14 +6,16 @@ import UserRegister from '@/pages/UserRegister';
 import Dashboard from '@/pages/Dashboard';
 import MySetting from '@/pages/MySetting';
 import ArticleList from '@/pages/ArticleList';
-import AddInvite from '@/pages/AddInvite';
 import TopicList from '@/pages/TopicList';
-import AddTopic from '@/pages/AddTopic';
 import NotFound from '@/pages/NotFound';
 import CreateArticle from '@/pages/CreateArticle';
 
 import CreateExam from '@/pages/CreateExam';
 import ExamList from '@/pages/ExamList';
+
+import ExperimentList from '@/pages/ExperimentList';
+import ExperimentCreate from '@/pages/ExperimentCreate';
+
 // import ExamDetail from '@/pages/ExamDetail';
 
 const routerConfig = [
@@ -62,21 +64,21 @@ const routerConfig = [
         path: '/exam/list',
         component: ExamList,
       },
+      {
+        path: '/experiment/list',
+        component: ExperimentList,
+      },
+      {
+        path: '/experiment/create',
+        component: ExperimentCreate,
+      },
       // {
       //   path: '/exam/detail/:exmId',
       //   component: ExamDetail,
       // },
       {
-        path: '/invite/add',
-        component: AddInvite,
-      },
-      {
         path: '/topic/list',
         component: TopicList,
-      },
-      {
-        path: '/topic/add',
-        component: AddTopic,
       },
       {
         path: '/setting/my',
