@@ -34,7 +34,7 @@ function ArticleList(props) {
   const renderOper = (value, index) => {
     return (
       <div>
-        <Link to="/invite/add" className={styles.edit}>
+        <Link to={`/article/create/${value}`} className={styles.edit}>
           修改
         </Link>
         <a
@@ -63,7 +63,7 @@ function ArticleList(props) {
         <Table.Column title="章节" dataIndex="chapterName" />
         <Table.Column title="发布时间" dataIndex="createdAt" cell={renderTime} />
         <Table.Column title="更新时间" dataIndex="updatedAt" cell={renderTime} />
-        <Table.Column title="操作" dataIndex="id" cell={renderOper} />
+        <Table.Column title="操作" dataIndex="articleId" cell={renderOper} />
       </Table>
     </IceContainer>
   );

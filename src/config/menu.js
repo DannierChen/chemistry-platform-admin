@@ -38,22 +38,19 @@ const asideMenuConfig = [
     ],
   },
   {
-    name: '邀请概览',
-    path: '/article',
+    name: '文章管理',
     icon: 'cascades',
     children: [
-      { name: '邀请列表', path: '/article/list' },
-      { name: '评测团队', path: '/invite/team' },
-      { name: '新增成员', path: '/invite/add' },
+      { name: '文章列表', path: '/article/list' },
+      { name: '新建文章', path: '/article/create' },
     ],
   },
   {
-    name: '邀评设置',
-    path: '/topic',
+    name: '试卷管理',
     icon: 'shezhi',
     children: [
-      { name: '话题列表', path: '/topic/list' },
-      { name: '新增话题', path: '/topic/add' },
+      { name: '试卷列表', path: '/exam/list' },
+      { name: '新建文章', path: '/exam/create' },
     ],
   },
   {

@@ -51,11 +51,11 @@ const routerConfig = [
         component: ArticleList,
       },
       {
-        path: '/article/create',
+        path: '/article/create/:articleId?',
         component: CreateArticle,
       },
       {
-        path: '/exam/create',
+        path: '/exam/create/:articleId?',
         component: CreateExam,
       },
       {

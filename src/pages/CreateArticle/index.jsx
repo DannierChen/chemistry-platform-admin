@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Field,  Form, Input, CascaderSelect, Message, Select } from '@alifd/next';
 
+import _ from 'lodash';
 import Axios from 'axios';
 import BraftEditor from 'braft-editor';
 import 'braft-editor/dist/index.css';
@@ -44,8 +45,6 @@ export default class CreateArticle extends React.Component {
     Axios.get('/getTermList').then((response) => {
       const res = response.data;
 
-      console.log(res);
-
       if (res.data && res.data.length) {
         this.setState({
           termList: res.data
@@ -55,7 +54,29 @@ export default class CreateArticle extends React.Component {
   }
 
   componentDidMount () {
-    this.field.setValue('article_content', BraftEditor.createEditorState(null));
+    if (this.props.match.params.articleId) {
+      Axios.get('/article/getArticleData', {
+        params: {
+          articleId: this.props.match.params.articleId
+        }
+      }).then(res => {
+        res = res.data;
+
+        console.log((_.pick(res.data, ['article_id', 'article_title', 'term_id', 'chapter_id', 'term_id'])))
+
+        if (res.success) {
+          this.field.setValues(
+            Object.assign({}, _.pick(res.data, ['article_id', 'article_title', 'term_id', 'chapter_id', 'exam_id']), {
+              article_content: BraftEditor.createEditorState(res.data['article_content'])
+            })
+          )
+        } else {
+
+        }
+      });
+    } else {
+      this.field.setValue('article_content', BraftEditor.createEditorState(null));
+    }
   }
 
   handleSubmit = () => {
@@ -69,7 +90,9 @@ export default class CreateArticle extends React.Component {
           Message.error("不能为空");
         }
 
-        Axios.post('/article/create', value).then(res => {
+        const url = value['article_id'] ? '/article/update' : 'article/create';
+
+        Axios.post(url, value).then(res => {
           res = res.data;
 
           if (res.success) {
@@ -86,7 +109,7 @@ export default class CreateArticle extends React.Component {
   }
 
   render() {
-    const { init } = this.field;
+    const { init, getValue } = this.field;
     const { examList, termList } = this.state;
 
     return (
@@ -105,6 +128,8 @@ export default class CreateArticle extends React.Component {
         </FormItem>
         <FormItem label="文章内容">
           <BraftEditor
+            value={BraftEditor.createEditorState(getValue('article_content'))}
+            style={{backgroundColor: '#fff'}}
             onChange={(editorState) => {
               this.field.setValue('article_content', editorState);
             }}
@@ -113,6 +138,7 @@ export default class CreateArticle extends React.Component {
         <FormItem label="所属学期">
           <CascaderSelect
             style={{width: 300}}
+            defaultValue={getValue('chapter_id')}
             onChange={(value, data, extra) => {
               this.field.setValues({
                 term_id: value,
@@ -143,7 +169,7 @@ export default class CreateArticle extends React.Component {
           </Select>
         </FormItem>
         <FormItem label=" ">
-          <Form.Submit onClick={this.handleSubmit}>确认</Form.Submit>
+          <Form.Submit type="primary" onClick={this.handleSubmit}>确认</Form.Submit>
         </FormItem>
       </Form>
     );
