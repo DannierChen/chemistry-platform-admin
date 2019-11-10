@@ -128,8 +128,8 @@ export default class CreateArticle extends React.Component {
         </FormItem>
         <FormItem label="文章内容">
           <BraftEditor
-            value={BraftEditor.createEditorState(getValue('article_content'))}
             style={{backgroundColor: '#fff'}}
+            value={BraftEditor.createEditorState(getValue('article_content'))}
             onChange={(editorState) => {
               this.field.setValue('article_content', editorState);
             }}
