@@ -1,5 +1,5 @@
 import BasicLayout from '@/layouts/BasicLayout';
-import UserLayout from '@/layouts/UserLayout';
+import UserLayout from '@/layouts/UserLayout-old';
 
 import UserLogin from '@/pages/UserLogin';
 import UserRegister from '@/pages/UserRegister';
@@ -30,10 +30,6 @@ const routerConfig = [
       {
         path: '/register',
         component: UserRegister,
-      },
-      {
-        path: '/',
-        redirect: '/user/login',
       },
       {
         component: NotFound,
@@ -91,8 +87,8 @@ const routerConfig = [
       {
         component: NotFound,
       },
-    ],
-  },
+    ]
+  }
 ];
 
 export default routerConfig;

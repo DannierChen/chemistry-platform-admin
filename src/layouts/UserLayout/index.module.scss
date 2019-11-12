@@ -1,33 +1,34 @@
 .container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100vw;
-  min-width: 1200px;
-  height: 100vh;
-  background-image: url(https://img.alicdn.com/tfs/TB1QZgkBHvpK1RjSZPiXXbmwXXa-1950-1300.jpg);
-  background-size: cover;
-}
-
-.mask {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #000;
-  opacity: 0.4;
-}
-
-.row {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-}
-
-.form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    position: relative;
+    width: 100wh;
+    min-width: 1200px;
+    height: 100vh;
+    background-image:
+      url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1570356530391&di=82533a4a1e766896929a249c4c7a5a77&imgtype=0&src=http%3A%2F%2Ffile03.16sucai.com%2F2016%2F10%2F1100%2F16sucai_p20161022087_261.JPG);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    // zIndex: 9;
+  }
+  .mask {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.5;
+    z-index: 1;
+  }
+  .row {
+    z-index: 9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+  }
+  .form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

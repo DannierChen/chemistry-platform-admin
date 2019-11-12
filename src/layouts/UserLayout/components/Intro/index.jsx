@@ -5,11 +5,10 @@ const LoginIntro = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className={styles.title}>评测管理系统</div>
-        <p className={styles.description}>简单、灵活、易使用的产品评测管理系统</p>
-        <p className={styles.description}>
-          通过邀评快速了解各维度下的产品评测和管理评测
-        </p>
+        <div className={styles.title}>高中化学自主学习平台</div>
+        <p className={styles.description}>面向教师、学生和家长</p>
+        <p className={styles.description}>支持在线拓展阅读和视频学习</p>
+        <p className={styles.description}>支持在线实验设计</p>
       </div>
     </div>
   );

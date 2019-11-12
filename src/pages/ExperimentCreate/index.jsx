@@ -114,19 +114,19 @@ export default class Createexperiment extends React.Component {
 
     return (
       <Form style={{width: '100%'}} {...formItemLayout} >
-        <FormItem label="标题">
+        <FormItem label="实验标题">
           <Input
             style={{width: 300}}
             {...init('experiment_title', {
               initValue: '',
               rules: [{
                 ruquired: true,
-                message: '文章标题不能为空'
+                message: '实验标题不能为空'
               }]
             })}
           />
         </FormItem>
-        <FormItem label="文章内容">
+        <FormItem label="实验指导">
           <BraftEditor
             value={BraftEditor.createEditorState(getValue('experiment_content'))}
             style={{backgroundColor: '#fff'}}
