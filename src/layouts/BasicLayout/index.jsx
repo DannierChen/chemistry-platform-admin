@@ -5,6 +5,12 @@ import Aside from './components/Aside';
 import Footer from './components/Footer';
 import styles from './index.module.scss';
 
+import Cookies from 'js-cookie';
+
+if (!Cookies.get('userName')) {
+  window.location.href = `${location.origin}/admin?login=true#/user/login`;
+}
+
 export default function BasicLayout(props) {
   return (
     <Layout

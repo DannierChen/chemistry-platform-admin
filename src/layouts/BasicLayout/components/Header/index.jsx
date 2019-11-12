@@ -7,6 +7,8 @@ import { headerMenuConfig } from '@/config/menu.js';
 import Logo from '../Logo';
 import styles from './index.module.scss';
 
+import Cookies from 'js-cookie';
+
 function Header(props) {
   const { location = {} } = props;
   const { pathname } = location;
@@ -129,7 +131,7 @@ function Header(props) {
                 className={styles.userAvatar}
               />
               <div className={styles.userProfile}>
-                <span className={styles.userName} style={{ fontSize: '13px' }}>{window.userName}</span>
+                <span className={styles.userName} style={{ fontSize: '13px' }}>{Cookies.get('userName')}</span>
                 <br />
               </div>
               <Icon type="arrow-down" size="xxs" className={styles.iconDown} />

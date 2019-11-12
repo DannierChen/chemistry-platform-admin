@@ -1,42 +1,21 @@
 // 菜单配置
 // headerMenuConfig：头部导航配置
 
+import Cookies from 'js-cookie';
+
 const headerMenuConfig = [
   {
     name: '首页',
-    path: '/',
+    path: `${location.origin}/portal`,
     icon: 'home',
-  },
-  {
-    name: '反馈',
-    path: 'https://github.com/alibaba/ice',
-    external: true,
-    newWindow: true,
-    icon: 'message',
-  },
-  {
-    name: '帮助',
-    path: 'https://alibaba.github.io/ice',
-    external: true,
-    newWindow: true,
-    icon: 'bangzhu',
-  },
+  }
 ];
 
 // asideMenuConfig：侧边导航配置
 
-const asideMenuConfig = [
-  {
-    name: 'Dashboard',
-    path: '/',
-    icon: 'home',
-    children: [
-      {
-        name: '数据概况',
-        path: '/dashboard',
-      },
-    ],
-  },
+const userType = Cookies.get('userType');
+
+let asideMenuConfig = [
   {
     name: '文章管理',
     icon: 'cascades',
@@ -60,13 +39,27 @@ const asideMenuConfig = [
       { name: '实验列表', path: '/experiment/list' },
       { name: '创建实验', path: '/experiment/create' },
     ],
-  },
-  {
-    name: '基本设置',
-    path: '/setting',
-    icon: 'yonghu',
-    children: [{ name: '个人设置', path: '/setting/my' }],
-  },
+  }
 ];
+
+if (userType == 2) {
+  asideMenuConfig = [
+    {
+      name: '自主学习记录查看',
+      icon: 'shezhi',
+      children: [
+        { name: '扩展阅读', path: '/record/article'},
+        { name: '视频学习', path: '/record/articles'}
+      ]
+    },
+    {
+      name: '实验记录查看',
+      icon: 'shezhi',
+      path: '/report/experiment'
+    }
+  ];
+}
+
+
 
 export { headerMenuConfig, asideMenuConfig };

@@ -10,6 +10,8 @@ import FoundationSymbol from '@icedesign/foundation-symbol';
 
 import Axios from 'axios';
 
+import Cookies from 'js-cookie';
+
 import styles from './index.module.scss';
 
 function UserLogin(props) {
@@ -37,7 +39,14 @@ function UserLogin(props) {
         if (!res.success) {
           Message.error(res.message);
         } else {
-          props.history.push('/');
+          Cookies.set('userType', res.data.userType);
+          Cookies.set('userName', res.data.userName);
+
+          if (res.data.userType == 2) {
+            props.history.push('/record/article');
+          } else {
+            props.history.push('/');
+          }
         }
       });
     });

@@ -22,7 +22,6 @@ export default class ExamListPage extends React.Component {
   render() {
     return (
       <div>
-        <Overview />
         <ExamList examList={this.state.examList} />
       </div>
     )

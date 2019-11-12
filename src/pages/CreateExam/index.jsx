@@ -31,82 +31,7 @@ export default class ExamDetail extends React.Component {
   field = new Field(this);
 
   state = {
-    quesList: [
-      {
-        type: 'judge',
-        title: '根据玻尔原子结构理论，氢原子的电子由外层轨道跃迁到内层轨道后，下列判断正确的是',
-        answer: true,
-      },
-      {
-        type: 'singleChoose',
-        title: '根据玻尔原子结构理论，氢原子的电子由外层轨道跃迁到内层轨道后，下列判断正确的是',
-        answer: 'A',
-        options: [
-          {
-            identifier: 'A',
-            content: '原子的能量增加，电子的动能减少'
-          },
-          {
-            identifier: 'B',
-            content: '原子的能量增加，电子的动能增加'
-          },
-          {
-            identifier: 'C',
-            content: '原子的能量减少，电子的动能减少'
-          },
-          {
-            identifier: 'D',
-            content: '原子的能量减少，电子的动能增加'
-          }
-        ]
-      },
-      {
-        type: 'singleChoose',
-        title: 'X、Y为两种元素的原子,X的阴离子与Y的阳离子具有相同的电子层结构',
-        options: [
-          {
-            identifier: 'A',
-            content: 'X的原子半径大于Y的原子半径',
-          },
-          {
-            identifier: 'B',
-            content: 'X的电负性小于Y的电负性',
-          },
-          {
-            identifier: 'C',
-            content: 'X的氧化性小于Y的氧化性'
-          },
-          {
-            identifier: 'D',
-            content: 'X的第一电离能大于Y的第一电离能'
-          }
-        ],
-        answer: 'A',
-      },
-      {
-        type: 'multipleChoose',
-        title: '下列有关元素周期系的叙述正确的是',
-        options: [
-          {
-            identifier: 'A',
-            content: '元素周期系中ⅠA族元素又称为碱金属元素',
-          },
-          {
-            identifier: 'B',
-            content: '元素周期系中每一周期元素的种类均相等',
-          },
-          {
-            identifier: '',
-            content: '元素周期系的形成原因是核外电子排布的周期性变化',
-          },
-          {
-            identifier: 'D',
-            content: '每一周期的元素最外层电子数均是1→8，周而复始',
-          },
-        ],
-        answer: ['C', 'D'],
-      },
-    ],
+    quesList: [],
     judgeVisible: false,
     singleChooseVisible: false,
     multipleChooseVisible: false,
@@ -159,6 +84,8 @@ export default class ExamDetail extends React.Component {
               this.props.history.push('/exam/list');
             }
           });
+        } else {
+          Message.error(res.message);
         }
       });
     });

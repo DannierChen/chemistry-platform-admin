@@ -3,7 +3,6 @@ import UserLayout from '@/layouts/UserLayout-old';
 
 import UserLogin from '@/pages/UserLogin';
 import UserRegister from '@/pages/UserRegister';
-import Dashboard from '@/pages/Dashboard';
 import MySetting from '@/pages/MySetting';
 import ArticleList from '@/pages/ArticleList';
 import TopicList from '@/pages/TopicList';
@@ -15,6 +14,9 @@ import ExamList from '@/pages/ExamList';
 
 import ExperimentList from '@/pages/ExperimentList';
 import ExperimentCreate from '@/pages/ExperimentCreate';
+
+import ArticleRecordList from '@/pages/ArticleRecordList';
+import ExperimentReportList from '@/pages/ExperimentReportList';
 
 // import ExamDetail from '@/pages/ExamDetail';
 
@@ -40,10 +42,6 @@ const routerConfig = [
     path: '/',
     component: BasicLayout,
     children: [
-      {
-        path: '/dashboard',
-        component: Dashboard,
-      },
       {
         path: '/article/list',
         component: ArticleList,
@@ -81,8 +79,16 @@ const routerConfig = [
         component: MySetting,
       },
       {
+        path: '/record/article',
+        component: ArticleRecordList,
+      },
+      {
+        path: '/report/experiment',
+        component: ExperimentReportList,
+      },
+      {
         path: '/',
-        redirect: '/dashboard',
+        redirect: '/article/list',
       },
       {
         component: NotFound,
