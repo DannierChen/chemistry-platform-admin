@@ -53,7 +53,7 @@ if (userType == 2) {
       ]
     },
     {
-      name: '实验记录查看',
+      name: '实验报告记录查看',
       icon: 'shezhi',
       path: '/report/experiment'
     }

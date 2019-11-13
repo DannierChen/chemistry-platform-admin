@@ -18,17 +18,6 @@ export default function Footer({ className, style }) {
         <div style={{ filter: 'grayscale(100%)', opacity: 0.3 }}>
           <Logo style={{ color: '#666' }} />
         </div>
-        <div className={styles.copyright}>
-          © 2018 Theme designed by{' '}
-          <a
-            href="https://github.com/alibaba/ice"
-            target="_blank"
-            className={styles.copyrightLink}
-            rel="noopener noreferrer"
-          >
-            ICE
-          </a>
-        </div>
       </div>
     </Layout.Footer>
   );
