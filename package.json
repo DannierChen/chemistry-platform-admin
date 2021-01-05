@@ -12,7 +12,7 @@
     "@icedesign/img": "^1.0.0",
     "@icedesign/layout": "^1.0.3",
     "@icedesign/theme": "^1.x",
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "bizcharts": "^3.1.5",
     "braft-editor": "^2.3.8",
     "enquire-js": "^0.1.2",
